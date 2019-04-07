@@ -1,0 +1,27 @@
+{
+  "name": "book-search",
+  "version": "1.0.0",
+  "description": "A React-based Google Books search app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kinneers/book-search.git"
+  },
+  "author": "Sarah Kinneer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kinneers/book-search/issues"
+  },
+  "homepage": "https://github.com/kinneers/book-search#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.22"
+  }
+}
