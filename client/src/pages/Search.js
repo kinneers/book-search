@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SearchForm from './../components/SearchForm';
 import ResultsContainer from './../components/ResultsContainer';
-import API from './../utils/API';
+//import API from './../utils/API';
 
 class Search extends Component {
     //Set the component's initial state
