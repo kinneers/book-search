@@ -1,4 +1,5 @@
-import React, { Component, Router, Route } from 'react';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import NavBar from './components/NavBar';
 import Jumbotron from './components/Jumbotron';
 import Search from './pages/Search';
@@ -12,9 +13,9 @@ class App extends Component {
             <div>
                 <NavBar />
                 <Jumbotron />
-                <Route exact path="/" component={Search} />
-                <Route exact path="/Search" component={Search} />
-                <Route exact path="/Saved" component={Saved} />
+                <Route exact path="/" component={Saved} />
+                <Route exact path="/about" component={Saved} />
+                <Route exact path="/blog" component={Search} />
             </div>
         </Router>
     );
