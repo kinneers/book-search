@@ -1,20 +1,22 @@
-
-
-///DOUBLE CHECK ON HOW I AM SUPPOSED TO USE BODY-PARSER AND CORS
-
 const express = require("express");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
+const bodyParser = require('body-parser');
+const cors = require('cors');
 const PORT = process.env.PORT || 3001;
 
-// Define middleware here
+// Middleware
+app.use(cors());
+app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// Serve up static assets (usually on heroku)
+
+// Serve up static assets- Heroku
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
 // Add routes, both API and view
 app.use(routes);
 

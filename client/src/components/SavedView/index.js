@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import SearchForm from './../components/SearchForm';
-import ResultsContainer from './../components/ResultsContainer';
+import ResultsContainer from './../ResultsContainer';
 //import API from './../utils/API';
 
 class Saved extends Component {
     //Set the component's initial state
-    state = {
+    // state = {
         
-    }
+    // }
 
     //When the component mounts, show the Search from and Empty Results
 
@@ -22,9 +21,6 @@ class Saved extends Component {
     render() {
         return(
             <div>
-                <div className='container'>
-                    <SearchForm />
-                </div>
                 <div className='container'>
                     <ResultsContainer />
                 </div>

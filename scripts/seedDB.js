@@ -8,7 +8,7 @@
 
 // mongoose.connect(
 //   process.env.MONGODB_URI ||
-//   "mongodb://localhost/reactreadinglist"
+//   "mongodb://localhost/books"
 // );
 
 // const bookSeed = [

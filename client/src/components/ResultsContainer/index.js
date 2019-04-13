@@ -1,10 +1,13 @@
-import React from "react";
+import React from 'react';
 
 function ResultsContainer() {
-  return (
-    <div>
-        This div is currently empty
-    </div>
+    return (
+        <div className="card">
+            <div className="card-body">
+                <h2>Results</h2>
+                <hr/>
+            </div>
+        </div>
   );
 }
 
