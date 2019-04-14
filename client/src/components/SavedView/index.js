@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ResultsContainer from './../ResultsContainer';
 //import API from './../utils/API';
 
 class Saved extends Component {
@@ -22,7 +21,6 @@ class Saved extends Component {
         return(
             <div>
                 <div className='container'>
-                    <ResultsContainer />
                 </div>
             </div>
         )
