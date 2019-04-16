@@ -1,0 +1,4 @@
+/* Sets thumbnail container max-height to prevent image stretching */
+.thumbnail-container {
+    max-height: 200px; 
+}
