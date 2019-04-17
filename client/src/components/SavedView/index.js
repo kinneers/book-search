@@ -1,28 +1,85 @@
 import React, { Component } from 'react';
-//import API from './../utils/API';
+import API from './../../utils/API';
 
 class Saved extends Component {
     //Set the component's initial state
-    // state = {
-        
-    // }
+    state = {
+        result: [],
+        message: ''
+    }
 
-    //When the component mounts, show the Search from and Empty Results
+    //When the component mounts, get all of the currently saved books to render to page
+    componentDidMount() {
+        API.getSaved()
+        .then(res => {
+            if (!res.data.length) {
+                //If no results were returned...
+                this.setState({ result: [], message: 'There are currently no saved titles.'})
+            } else {
+                let resultArray = res.data;
+                this.setState({ result: resultArray, message: '' });
+            }
+        })
+        .catch(err => console.log(err));
+    }
 
-    //Load the API Results and set them to this.state.books
+    //Deletes selected book from MongoDB
+    deleteBook(event) {
+        API.deleteBook(event.target.dataset.id)
+        .then(res => this.componentDidUpdate)
+        //SEND OUT A MODAL WHEN YOU GET A CHANCE
+        .catch(err => console.log(err));
+        //State needs to change here
+    };
 
-    //Save a book to the database with a given id
-
-    //Use handleInputChange to handle updating component state when the user types into the input field
-
-    //When the form is submitted, make API call to Google Books API
+    componentDidUpdate() {
+        API.getSaved()
+        .then(res => {
+            if (!res.data.length) {
+                //If no results were returned...
+                this.setState({ result: [], message: 'There are currently no saved titles.'})
+            } else {
+                let resultArray = res.data;
+                this.setState({ result: resultArray, message: '' });
+            }
+        })
+        .catch(err => console.log(err));
+    }
 
     render() {
         return(
             <div>
-                <div className='container'>
+            <div className='container'>
+                <div className="card">
+                    <div className="card-body">
+                        <h2>Results</h2>
+                        <hr/>
+                        {(this.state.result.length) ? (
+                            <ul className='list-group'>
+                            {this.state.result.map(result => (
+                                <li className='list-group-item' key={result._id}>
+                                    <div className='clearfix'>
+                                        <button className='btn btn-danger float-right p-2' data-id={result._id} onClick={this.deleteBook}>Delete</button>
+                                        <a className="btn btn-success float-right p-2" href={result.link} target='_blank' rel='noopener noreferrer'>View</a>
+                                    </div>
+                                    <h2>{result.title}</h2>
+                                    <h4>Author(s): {result.authors}</h4>
+                                    <div className='image-description d-flex'>
+                                        <div className='thumbnail-container'>
+                                            <img className='thumbnail' src={result.image} alt='Book'/>
+                                        </div>
+                                        <p className='p-3'>{result.description}</p>
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                        ) : <h3>{this.state.message}</h3>}
+                    </div>
                 </div>
+                <br/>
             </div>
+        </div>
+
         )
     }
 }
