@@ -1,3 +1,18 @@
+#jumbo {
+    background-image: url('./components/Jumbotron/library.jpg');
+    background-size: cover;
+    text-align: center;
+    color: rgb(171, 171, 189);
+    text-shadow:
+        -1px -1px 0 #000,  
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+    text-emphasis: bold;
+    max-height: 200px;
+    padding: 10px;
+}
+
 .App {
   text-align: center;
 }
