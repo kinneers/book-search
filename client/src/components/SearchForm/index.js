@@ -47,7 +47,7 @@ class SearchForm extends Component {
             image: bookInfo.dataset.image,
             link: bookInfo.dataset.link
         })
-        .then(res => console.log('Saved! Double-check that!'))
+        .then(res => console.log('Saved!'))
         //SEND OUT A MODAL WHEN YOU GET A CHANCE
         .catch(err => console.log(err));
     };
