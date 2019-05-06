@@ -1,5 +1,5 @@
 # (React) Google Books Search
-A full-stack MERN application which searches the Google Books API and displays the results with buttons to click to either view a book at the Goolge Books URL or save that book to the database.  Clicking on the saved route in the navigation displays all of the books that have been saved in the database and allows the user to either view a particular book at the Google Books URL or delete that book from the database.
+A full-stack MERN application which searches the Google Books API and displays the results with buttons to click to either view a book at the Google Books URL or save that book to the database.  Clicking on the saved route in the navigation displays all of the books that have been saved in the database and allows the user to either view a particular book at the Google Books URL or delete that book from the database.
 
 ### Developed by: Sarah Kinneer
 #### April, 2019
