@@ -28,6 +28,7 @@ class SearchForm extends Component {
         .then(res => {
             if (res.data.totalItems > 0) {
                 let resultArray = res.data.items;
+                console.log(res.data.items);
                 this.setState({ result: resultArray, title: '', message: 'Your search results will display here.' });
             } else {
                 //If no results were returned...
@@ -78,8 +79,9 @@ class SearchForm extends Component {
                             <hr/>
                             {(this.state.result.length) ? (
                                 <ul className='list-group'>
-                                {this.state.result.map(result => (
-                                    <li className='list-group-item' key={result.id}>
+                                {this.state.result.map(result => 
+                                (result.volumeInfo.imageLinks.smallThumbnail) ? (
+                                    (<li className='list-group-item' key={result.id}>
                                         <div className='clearfix'>
                                             <button className='btn btn-primary float-right p-2' data-title={result.volumeInfo.title} data-link={result.volumeInfo.previewLink} data-authors={result.volumeInfo.authors} data-image={result.volumeInfo.imageLinks.smallThumbnail} data-description={result.volumeInfo.description} onClick={this.saveBook}>Save</button>
                                             <a className="btn btn-success float-right p-2" href={result.volumeInfo.previewLink} target='_blank' rel='noopener noreferrer'>View</a>
@@ -92,7 +94,22 @@ class SearchForm extends Component {
                                             </div>
                                             <p className='p-3'>{result.volumeInfo.description}</p>
                                         </div>
-                                    </li>
+                                    </li>)
+                                ) : (
+                                    (<li className='list-group-item' key={result.id}>
+                                        <div className='clearfix'>
+                                            <button className='btn btn-primary float-right p-2' data-title={result.volumeInfo.title} data-link={result.volumeInfo.previewLink} data-authors={result.volumeInfo.authors} data-description={result.volumeInfo.description} onClick={this.saveBook}>Save</button>
+                                            <a className="btn btn-success float-right p-2" href={result.volumeInfo.previewLink} target='_blank' rel='noopener noreferrer'>View</a>
+                                        </div>
+                                        <h2>{result.volumeInfo.title}</h2>
+                                        <h4>Author(s): {result.volumeInfo.authors}</h4>
+                                        <div className='image-description d-flex'>
+                                            <div className='thumbnail-container'>
+                                                <p>No image available</p>
+                                            </div>
+                                            <p className='p-3'>{result.volumeInfo.description}</p>
+                                        </div>
+                                    </li>)
                                 ))}
                             </ul>
                             ) : <h3>{this.state.message}</h3>}
